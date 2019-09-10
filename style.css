@@ -5,7 +5,10 @@ html, body {
 body {
 	display: flex;
 	flex-direction: column;
-	background: #aac4b9;
+	background-image: url(img/flowerBackground1.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 	font-family: 'Livvic', sans-serif;
 
 }
@@ -23,6 +26,9 @@ header {
 	display: flex;
 	justify-content: space-around;
 	align-items: flex-end;
+	background-color: rgb(238,237,240,0.8);
+	margin: 0 0 50px 0;
+	padding: 0;
 }
 .logo {
 	width: 15em;
@@ -34,7 +40,7 @@ header {
 	top: 20px;
 	left: 40px;
 	background: #fad7de;
-	box-shadow: 5px 5px 10px #9091a0;
+	box-shadow: 5px 5px 10px rgb(34, 34, 34);
 	z-index: 2;
 }
 
@@ -46,6 +52,11 @@ nav {
 
 a {
 	margin: 0 10px 0 0;
+	padding: 10px;
+}
+
+.highlight {
+	border: #d9cb96 2px;
 }
 
 /* ===== MAIN CONTENT ===== */
@@ -58,6 +69,7 @@ main {
 	background-image: linear-gradient(#c0d9eb 80%, transparent);
 	padding: 10px 10px 10px 30px;
 	border-radius: 50px 50px 0 0;
+	min-height: 300px;
 }
 
 /* ===== FOOTER =====*/

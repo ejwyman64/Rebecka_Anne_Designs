@@ -19,8 +19,8 @@ var homePage =
         </p>
     </div>`;
 
-var storePage = 
-    `<div id="storePage" class="hide">
+var galleryPage = 
+    `<div id="galleryPage" class="hide">
         <p>This will have a gallery and a way for customers to order items.</p>
     </div>`;
 
@@ -31,21 +31,18 @@ var contactPage =
     </div>`;
 
 //Buttons
-var aboutButton = document.getElementById("aboutButton");
-var homeButton = document.getElementById("homeButton");
-var storeButton = document.getElementById("storeButton");
-var contactButton = document.getElementById("contactButton");
+const aboutButton = document.getElementById("aboutButton");
+const homeButton = document.getElementById("homeButton");
+const galleryButton = document.getElementById("galleryButton");
+const contactButton = document.getElementById("contactButton");
 
 
-//Event Listeners
+//Event Listeners for switching pages.
 window.addEventListener("load", displayPage);
 homeButton.addEventListener("click", displayPage);
 aboutButton.addEventListener("click", displayPage);
-storeButton.addEventListener("click", displayPage);
+galleryButton.addEventListener("click", displayPage);
 contactButton.addEventListener("click", displayPage);
-
-// window.addEventListener("unload", unDisplayPage);
-
 
 // This function will allow me to dynamically display each page.
 function displayPage() {
@@ -57,8 +54,8 @@ function displayPage() {
         currentState.innerHTML = aboutPage;
         displayTransitions(currentState)
 
-    } else if (event.target == storeButton){
-        currentState.innerHTML = storePage;
+    } else if (event.target == galleryButton){
+        currentState.innerHTML = galleryPage;
         displayTransitions(currentState)
 
     } else if (event.target == contactButton){
@@ -82,6 +79,15 @@ function displayTransitions(state) {
         console.log(currentState);
     } else {
         state.firstChild.className = "hide";
+    }
+}
+
+function linkHighlight() {
+    if(event.target.className == "noHighlight"){
+        event.target.className = "highlight";
+        console.log(currentState);
+    } else {
+        event.target.className = "noHighlight";
     }
 }
 
