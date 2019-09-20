@@ -5,13 +5,14 @@ html, body {
 body {
 	display: flex;
 	flex-direction: column;
-	background-image: url(img/flowerBackground1.jpg);
+	background-image: url(img/tapestry.jpg);
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	font-family: 'Livvic', sans-serif;
-
+	color: white;
 }
+
 
 /* .backgroundImage {
 	width: 100%;
@@ -21,26 +22,27 @@ body {
 	z-index: -1;
 } */
 
+
 /* ===== HEADER ===== */
+
 header {
 	display: flex;
 	justify-content: space-around;
 	align-items: flex-end;
-	background-color: rgb(238,237,240,0.8);
+	background-color: rgb(218, 176, 168, 0.8);
 	margin: 0 0 50px 0;
 	padding: 0;
 }
+
 .logo {
 	width: 15em;
 	height: 15em;
 	margin: 10px;
 	padding: 0;
-	border-radius: 100%;
 	position: absolute;
 	top: 20px;
 	left: 40px;
-	background: #fad7de;
-	box-shadow: 5px 5px 10px rgb(34, 34, 34);
+	/* box-shadow: 5px 5px 10px rgb(218, 176, 168); */
 	z-index: 2;
 }
 
@@ -52,25 +54,47 @@ nav {
 
 a {
 	margin: 0 10px 0 0;
-	padding: 10px;
+	padding: 11px;
+	border: 0;
 }
 
-.highlight {
-	border: #d9cb96 2px;
+a:hover {
+	padding: 10px;
+	border: 1px solid #8f7133;
+	border-radius: 10px;
+	cursor: pointer;
 }
+
 
 /* ===== MAIN CONTENT ===== */
+
 main {
 	flex: 1 0 auto;
 }
 
-.show {
+.state {
 	z-index: 3;
-	background-image: linear-gradient(#c0d9eb 80%, transparent);
+	background-image: linear-gradient(rgb(44, 82, 101, 0.8) 80%, transparent);
 	padding: 10px 10px 10px 30px;
 	border-radius: 50px 50px 0 0;
-	min-height: 300px;
+	min-height: 500px;
 }
+
+#galleryPage {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.galImg {
+	padding: 10px;
+	margin:10px;
+	width: 20%;
+	height: 20%;
+	border: 1px solid #8f7133;
+	border-radius: 10px;
+}
+
 
 /* ===== FOOTER =====*/
 
@@ -78,19 +102,24 @@ main {
 	flex-shrink: 0;
 }
 
+
 /* ===== SPECIAL INSTRUCTIONS ===== */
+
 .container {
 	margin: 0 20%;
 }
 
 
 /*==== ANIMATIONS ===*/
+
+
 /* FADE IN UP */
+
 @-webkit-keyframes fadeInUp {
 	from {
 		opacity: 0;
-		-webkit-transform: translate3d(0, 100%, 0);
-		transform: translate3d(0, 100%, 0);
+		-webkit-transform: translate3d(0, 20%, 0);
+		transform: translate3d(0, 20%, 0);
 	}
 	to {
 		opacity: 1;
@@ -102,8 +131,8 @@ main {
 @keyframes fadeInUp {
 	from {
 		opacity: 0;
-		-webkit-transform: translate3d(0, 100%, 0);
-		transform: translate3d(0, 100%, 0);
+		-webkit-transform: translate3d(0, 20%, 0);
+		transform: translate3d(0, 20%, 0);
 	}
 	to {
 		opacity: 1;
@@ -122,6 +151,5 @@ main {
 }
 
 .hide {
-	display: none;
+	display: hidden;
 }
-

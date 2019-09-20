@@ -1,16 +1,14 @@
-var d = new Date();
-var time = document.getElementById("time").innerHTML = "<h1>Time: " + d.getHours() + ":" + d.getMinutes() + "</h1>";
-
-var currentState = document.getElementById("currentState");
+// Current State will be what is seen in the main section of the window.
+let currentState = document.getElementById("currentState");
 
 var aboutPage =
-    `<div id="aboutPage" class="hide">
+    `<div id="aboutPage" class="hide state">
         <h3>Rebecka Anne Pinkham ~ Owner and Chief of Design since 2019</h3>
         <p>Blah blah blah, stuff about Becka.</p>
     </div>`;
 
 var homePage =
-    `<div id="homePage" class="hide">
+    `<div id="homePage" class="hide state">
         <h1 class="greeting">Welcome to my website!</h1>
         <p>Lorem ipsum dolor amet tilde knausgaard helvetica waistcoat poutine neutra try-hard.
         Messenger bag flannel cold-pressed vegan, before they sold out hella palo santo kitsch franzen.
@@ -19,75 +17,77 @@ var homePage =
         </p>
     </div>`;
 
-var galleryPage = 
-    `<div id="galleryPage" class="hide">
-        <p>This will have a gallery and a way for customers to order items.</p>
+var galleryPage =
+    `<div id="galleryPage" class="hide state">
+        <img class="galImg" src="img/QueenB.jpg" alt="Girl with a crown on her head.">
+        <img class="galImg" src="img/Icecream.jpg" alt="Ice cream cone.">
+        <img class="galImg" src="img/Psalm1.jpg" alt="Tree with roots.">
+        <img class="galImg" src="img/Structures.jpg" alt="Front of building">
     </div>`;
 
-var contactPage = 
-    `<div id="contactPage" class="hide">
+var contactPage =
+    `<div id="contactPage" class="hide state">
         <h2>How to contact Rebecka Anne</h2>
         <p>Contact information here. Blah blah blah. 555-555-5555</p>
     </div>`;
 
+
 //Buttons
-const aboutButton = document.getElementById("aboutButton");
-const homeButton = document.getElementById("homeButton");
-const galleryButton = document.getElementById("galleryButton");
-const contactButton = document.getElementById("contactButton");
+let buttons = [];
+buttons[0] = document.getElementById("homeButton");
+buttons[1] = document.getElementById("aboutButton");
+buttons[2] = document.getElementById("galleryButton");
+buttons[3] = document.getElementById("contactButton");
+
+buttons.forEach(btn => {
+    btn.addEventListener("click", displayPage);
+});
 
 
-//Event Listeners for switching pages.
-window.addEventListener("load", displayPage);
-homeButton.addEventListener("click", displayPage);
-aboutButton.addEventListener("click", displayPage);
-galleryButton.addEventListener("click", displayPage);
-contactButton.addEventListener("click", displayPage);
 
-// This function will allow me to dynamically display each page.
+//Event listener for loading the home page at start.
+let windowLoad = window.addEventListener("load", displayPage);
+
+// This function will allow me to dynamically display each page. 
 function displayPage() {
-    if(event.target == homeButton){
+    if (event.target == buttons[0]) {
+
+        console.log(currentState);
         currentState.innerHTML = homePage;
-        displayTransitions(currentState)
+        displayTransitions(currentState);
 
-    } else if(event.target == aboutButton){
+
+    } else if (event.target == buttons[1]) {
+        console.log(currentState);
         currentState.innerHTML = aboutPage;
-        displayTransitions(currentState)
+        displayTransitions(currentState);
 
-    } else if (event.target == galleryButton){
+
+    } else if (event.target == buttons[2]) {
+        console.log(currentState);
         currentState.innerHTML = galleryPage;
-        displayTransitions(currentState)
+        displayTransitions(currentState);
 
-    } else if (event.target == contactButton){
+
+    } else if (event.target == buttons[3]) {
+        console.log(currentState);
         currentState.innerHTML = contactPage;
-        displayTransitions(currentState)
- 
+        displayTransitions(currentState);
+
+
     } else {
         currentState.innerHTML = homePage;
-        displayTransitions(currentState)
+        displayTransitions(currentState);
     }
 }
 
-function unDisplayPage() {
-    displayTransitions(event.target);
-    console.log(event.target);
-}
 
 function displayTransitions(state) {
-    if(state.firstChild.className == "hide"){
-        state.firstChild.className = "show";
+    if (state.firstChild.className == "hide state") {
+        state.firstChild.className = "show state";
         console.log(currentState);
     } else {
-        state.firstChild.className = "hide";
-    }
-}
-
-function linkHighlight() {
-    if(event.target.className == "noHighlight"){
-        event.target.className = "highlight";
-        console.log(currentState);
-    } else {
-        event.target.className = "noHighlight";
+        state.firstChild.className.firstChild = "hide state";
     }
 }
 
