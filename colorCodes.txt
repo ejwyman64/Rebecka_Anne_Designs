@@ -1,0 +1,12 @@
+Dark blue:
+rgb(44, 82, 101)
+#2c5265
+
+Bright blue:
+rgb(88, 157, 191)
+
+Dark gold:
+#8f7133
+
+Deep peach:
+rgb(218, 176, 168)
