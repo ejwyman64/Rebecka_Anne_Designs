@@ -32,9 +32,11 @@ var homePage =
         <img class="galImg" src="img/Psalm1.jpg" alt="Tree with roots.">
         <img class="galImg" src="img/Structures.jpg" alt="Front of building">
         </div>
-        <a id="seeMoreGallery" class="noHighlight ">See More</a>
-
+        <a onclick="renderPage(galleryPage, currentState)" id="seeMoreGallery" class="noHighlight ">See More</a>
     </div>`;
+
+var seeMore = "See More"
+
 
 var galleryPage =
     `<div id="galleryPage" class="hide state">
@@ -50,18 +52,7 @@ var galleryPage =
     </div>`;
 
 
-    // function createLi(i) {
-    //     nameItem = document.createElement("li");
-    //     var itemText = document.createTextNode(i);
-    //     nameItem.appendChild(itemText);
-    //     ul.appendChild(nameItem);
-    //     nameItem.classList.add("nameItem");
-    //     nameItem.id = i;
-    // }
-var renderPage = function(template, node) {
-    if (!node) return;
-    node.innerHTML = template;
-}
+
 
 var contactPage =
     `<div id="contactPage" class="hide state">
@@ -71,7 +62,7 @@ var contactPage =
 
 
 
-//Buttons
+//Navigation buttons.
 let buttons = [];
 buttons[0] = document.getElementById("homeButton");
 buttons[1] = document.getElementById("aboutButton");
@@ -82,50 +73,33 @@ buttons.forEach(btn => {
     btn.addEventListener("click", displayPage);
 });
 
-
-//Event listener for loading the home page at start.
-let windowLoad = window.addEventListener("load", displayPage);
+// Render home page on load.
+var renderPage = function (template, node) {
+    console.log(template);
+    node.innerHTML = template;
+}
+renderPage(homePage, currentState);
 
 // This function will allow me to dynamically display each page. 
 function displayPage() {
     if (event.target == buttons[0]) {
-
         console.log(currentState);
-        currentState.innerHTML = homePage;
-        displayTransitions(currentState);
-
+        renderPage(homePage, currentState);
 
     } else if (event.target == buttons[1]) {
         console.log(currentState);
-        currentState.innerHTML = aboutPage;
-        displayTransitions(currentState);
-
+        renderPage(aboutPage, currentState);
 
     } else if (event.target == buttons[2]) {
         console.log(currentState);
-        currentState.innerHTML = galleryPage;
-        displayTransitions(currentState)
-
+        renderPage(galleryPage, currentState);
 
     } else if (event.target == buttons[3]) {
         console.log(currentState);
         renderPage(contactPage, currentState);
 
-
     } else {
-        currentState.innerHTML = homePage;
-        displayTransitions(currentState);
+        renderPage(homePage, currentState);
     }
 }
 
-
-function displayTransitions(state) {
-    if (state.firstChild.className == "hide state") {
-        state.firstChild.className = "show state";
-        console.log(currentState);
-    } else {
-        state.firstChild.className.firstChild = "hide state";
-    }
-}
-
-console.log(currentState);
